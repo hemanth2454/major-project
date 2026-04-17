@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillX | Available Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .course-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .course-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .course-desc {
+            margin-bottom: 1.5rem;
+        }
+        #categoryTitle {
+            text-transform: capitalize;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><h1 id="logo">Skill<span>X</span></h1></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Explore</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><button class="btn btn-outline" id="loginBtn">Login</button></li>
+                <li><button class="btn btn-primary" id="registerBtn">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section" style="padding-top: 10rem;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="margin-bottom: 0;">Learn <span id="categoryTitle">Skills</span></h2>
+                <button class="btn btn-primary" id="teachBtn">Teach Here</button>
+            </div>
+            
+            <div class="skills-grid" id="coursesGrid">
+                <!-- Courses will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="config.js"></script>
+    <script src="notification-manager.js"></script>
+
+    <script src="script.js"></script>
+    <script src="courses.js"></script>
+</body>
+</html>

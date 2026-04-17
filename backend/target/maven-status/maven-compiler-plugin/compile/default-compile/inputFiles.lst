@@ -1,0 +1,12 @@
+D:\major project\backend\src\main\java\com\skillx\backend\config\WebConfig.java
+D:\major project\backend\src\main\java\com\skillx\backend\model\ChatMessage.java
+D:\major project\backend\src\main\java\com\skillx\backend\controller\ChatController.java
+D:\major project\backend\src\main\java\com\skillx\backend\repository\JoinRequestRepository.java
+D:\major project\backend\src\main\java\com\skillx\backend\controller\JoinRequestController.java
+D:\major project\backend\src\main\java\com\skillx\backend\model\JoinRequest.java
+D:\major project\backend\src\main\java\com\skillx\backend\model\User.java
+D:\major project\backend\src\main\java\com\skillx\backend\BackendApplication.java
+D:\major project\backend\src\main\java\com\skillx\backend\controller\AuthController.java
+D:\major project\backend\src\main\java\com\skillx\backend\repository\UserRepository.java
+D:\major project\backend\src\main\java\com\skillx\backend\service\UserService.java
+D:\major project\backend\src\main\java\com\skillx\backend\config\WebSocketConfig.java

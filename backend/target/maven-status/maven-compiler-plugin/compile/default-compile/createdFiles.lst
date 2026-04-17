@@ -1,0 +1,13 @@
+com\skillx\backend\BackendApplication.class
+com\skillx\backend\model\JoinRequest.class
+com\skillx\backend\repository\JoinRequestRepository.class
+com\skillx\backend\controller\AuthController.class
+com\skillx\backend\config\WebSocketConfig.class
+com\skillx\backend\model\User.class
+com\skillx\backend\repository\UserRepository.class
+com\skillx\backend\model\JoinRequest$RequestStatus.class
+com\skillx\backend\service\UserService.class
+com\skillx\backend\controller\ChatController.class
+com\skillx\backend\controller\JoinRequestController.class
+com\skillx\backend\model\ChatMessage$MessageType.class
+com\skillx\backend\model\ChatMessage.class

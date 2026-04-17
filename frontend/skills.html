@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillX | Explore Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><h1 id="logo">Skill<span>X</span></h1></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html" class="active">Explore</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><button class="btn btn-outline" id="loginBtn">Login</button></li>
+                <li><button class="btn btn-primary" id="registerBtn">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section" id="dashboard-section" style="padding-top: 10rem; display: none;">
+        <div class="container">
+            <h2 class="section-title">My Dashboard</h2>
+            <div id="pendingRequestsContainer" style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--text-main);">Join Requests for My Courses</h3>
+                <div class="skills-grid" id="pendingRequestsGrid"></div>
+            </div>
+            <div id="myAcceptedRequestsContainer">
+                <h3 style="margin-bottom: 1rem; color: var(--text-main);">My Accepted Requests to Join</h3>
+                <div class="skills-grid" id="acceptedRequestsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="explore-section" style="padding-top: 4rem;">
+        <div class="container">
+            <h2 class="section-title">Explore Skills</h2>
+            <div class="skills-grid">
+                
+                <!-- Skill Card 1 -->
+                <div class="skill-card">
+                    <img src="assets/tech.png" alt="Technical Skills" class="skill-img">
+                    <div class="skill-content">
+                        <h3>Technical Skills</h3>
+                        <p>Coding, Web Development, Data Science, AI</p>
+                        <div class="skill-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='courses.html#tech'">Learn</button>
+                            <button class="btn btn-outline" onclick="window.location.href='teach.html#tech'">Teach</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="skill-card">
+                    <img src="assets/culture.png" alt="Cultural Skills" class="skill-img">
+                    <div class="skill-content">
+                        <h3>Cultural & Languages</h3>
+                        <p>Spanish, French, History, Music, Traditions</p>
+                        <div class="skill-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='courses.html#culture'">Learn</button>
+                            <button class="btn btn-outline" onclick="window.location.href='teach.html#culture'">Teach</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="skill-card">
+                    <img src="assets/cooking.png" alt="Cooking Skills" class="skill-img">
+                    <div class="skill-content">
+                        <h3>Cooking & Culinary</h3>
+                        <p>Baking, Vegan, Local Cuisines, Meal Prep</p>
+                        <div class="skill-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='courses.html#cooking'">Learn</button>
+                            <button class="btn btn-outline" onclick="window.location.href='teach.html#cooking'">Teach</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="skill-card">
+                    <img src="assets/art.png" alt="Art & Design" class="skill-img">
+                    <div class="skill-content">
+                        <h3>Art & Design</h3>
+                        <p>Painting, Digital Art, UI/UX, Photography</p>
+                        <div class="skill-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='courses.html#art'">Learn</button>
+                            <button class="btn btn-outline" onclick="window.location.href='teach.html#art'">Teach</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="config.js"></script>
+
+    <script src="notification-manager.js"></script>
+    <script src="script.js"></script>
+    <script src="skills.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillX | Peer-to-Peer Skill Exchange</title>
+    <meta name="description"
+        content="Exchange skills with people around you. Learn something new, teach what you know. No money involved.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" style="text-decoration: none;"><h1 id="logo">Skill<span>X</span></h1></a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="skills.html">Explore</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><button class="btn btn-outline" id="loginBtn">Login</button></li>
+                <li><button class="btn btn-primary" id="registerBtn">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Level Up Your Skills Through <span>Exchange</span></h2>
+                <p class="hero-subtitle">The world's first truly peer-to-peer knowledge sharing platform. No tuition, no
+                    fees, just pure human connection and learning.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-lg" onclick="window.location.href='skills.html'">Explore Skills</button>
+                    <button class="btn btn-outline btn-lg">Watch How it Works</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-box">
+                    <img src="assets/hero.png" alt="Skill Exchange Visualization">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h3 class="section-title">Why Choose SkillX?</h3>
+            <div class="features-grid">
+                <a href="skills.html" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer; display: block;">
+                    <div class="icon">🎓</div>
+                    <h4>Learn Anything</h4>
+                    <p>From coding and design to cooking and gardening.</p>
+                </a>
+                <a href="auth.html" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer; display: block;">
+                    <div class="icon">🤝</div>
+                    <h4>True Exchange</h4>
+                    <p>No money required. Just a mutual desire to share knowledge.</p>
+                </a>
+                <a href="chat.html" class="feature-card" style="text-decoration: none; color: inherit; cursor: pointer; display: block;">
+                    <div class="icon">💬</div>
+                    <h4>Real-time Chat</h4>
+                    <p>Connect instantly with your mentors and students.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="config.js"></script>
+
+    <script src="notification-manager.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
