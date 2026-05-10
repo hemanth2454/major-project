@@ -7,7 +7,7 @@ echo.
 echo Starting SkillX Backend and Frontend...
 
 :: Start Backend in a new window (IPv4 fix is now handled in Java code)
-start "SkillX Backend" powershell -NoExit -Command "cd backend; .\apache-maven-3.9.6\bin\mvn.cmd spring-boot:run"
+start "SkillX Backend" powershell -NoExit -Command ".\backend\apache-maven-3.9.6\bin\mvn.cmd -f backend/pom.xml spring-boot:run"
 
 :: Wait for backend to initialize
 echo Waiting for backend to start (15s)...

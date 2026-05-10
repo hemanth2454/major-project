@@ -38,6 +38,8 @@ document.getElementById('teachBtn').addEventListener('click', () => {
 });
 
 // Load Courses
+let currentCategoryCourses = [];
+
 function loadCourses() {
     // One-time auto-reset to clear the corrupted mixed data
     if (localStorage.getItem('skillx_reset') !== 'done') {
@@ -54,19 +56,32 @@ function loadCourses() {
         localStorage.setItem('skillx_courses', JSON.stringify(allCourses));
     }
     
-    const categoryCourses = allCourses[category] || [];
+    currentCategoryCourses = allCourses[category] || [];
+    renderCourses(currentCategoryCourses);
+}
+
+function renderCourses(courses, isSearch = false) {
     const grid = document.getElementById('coursesGrid');
     grid.innerHTML = '';
     
-    if (categoryCourses.length === 0) {
-        grid.innerHTML = '<div class="empty-state"><h3>No skills available yet.</h3><p>Be the first to teach something in this category!</p></div>';
+    if (courses.length === 0) {
+        grid.innerHTML = '<div class="empty-state"><h3>No matches found.</h3><p>Try a different keyword or category!</p></div>';
         return;
     }
     
-    categoryCourses.forEach(course => {
+    courses.forEach(course => {
         const card = document.createElement('div');
         card.className = 'course-card';
+        card.style.position = 'relative';
+
+        let scoreBadge = '';
+        if (isSearch && course.fozziScore > 0) {
+            const scoreClass = course.fozziScore > 80 ? 'match-high' : (course.fozziScore > 50 ? 'match-med' : '');
+            scoreBadge = `<div class="match-score-badge ${scoreClass}">Fozzi Match: ${course.fozziScore}%</div>`;
+        }
+
         card.innerHTML = `
+            ${scoreBadge}
             <h3 class="course-title">${course.title}</h3>
             <div class="course-meta">Instructed by: <strong>${course.instructor}</strong></div>
             <p class="course-desc">${course.desc}</p>
@@ -77,7 +92,22 @@ function loadCourses() {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', loadCourses);
+document.addEventListener('DOMContentLoaded', () => {
+    loadCourses();
+
+    const searchInput = document.getElementById('skillSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            if (!query) {
+                renderCourses(currentCategoryCourses);
+            } else {
+                const results = FuzzyMatcher.match(query, currentCategoryCourses, ['title', 'desc']);
+                renderCourses(results, true);
+            }
+        });
+    }
+});
 
 async function sendJoinRequest(instructor, title) {
     const userStr = localStorage.getItem('user');
