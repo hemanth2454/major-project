@@ -4,10 +4,10 @@
  */
 const CONFIG = {
     // The base URL for the Spring Boot REST API
-    API_BASE_URL: `http://${window.location.hostname}:8080/api`,
-    
+    API_BASE_URL: `https://skill-exchange-eitb.onrender.com/api`,
+
     // The WebSocket endpoint for Chat features
-    WS_URL: `ws://${window.location.hostname}:8080/ws`
+    WS_URL: `wss://skill-exchange-eitb.onrender.com/ws`
 };
 
 // Export for console debugging if needed
