@@ -4,10 +4,10 @@
  */
 const CONFIG = {
     // The base URL for the Spring Boot REST API
-    API_BASE_URL: `https://major-project-42do.onrender.com/api`,
+    API_BASE_URL: `http://localhost:8080/api`,
 
     // The WebSocket endpoint for Chat features
-    WS_URL: `wss://major-project-42do.onrender.com/ws`
+    WS_URL: `ws://localhost:8080/ws`
 };
 
 // Export for console debugging if needed
