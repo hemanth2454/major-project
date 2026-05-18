@@ -14,19 +14,25 @@ public class BackendApplication {
 				.ignoreIfMissing()
 				.load();
 		
-		String mongoUri = dotenv.get("MONGO_URI");
-		
-		// If not found in current directory, try backend/ (useful when running from root)
-		if (mongoUri == null || mongoUri.isEmpty()) {
-			dotenv = Dotenv.configure()
-					.directory("./backend")
-					.ignoreIfMissing()
-					.load();
-			mongoUri = dotenv.get("MONGO_URI");
-		}
+		String env = System.getenv("ENVIRONMENT");
+		boolean isProd = "production".equals(env) || "true".equals(System.getenv("RENDER"));
 
-		if (mongoUri != null) {
-			System.setProperty("MONGO_URI", mongoUri);
+		if (isProd) {
+			// In production, disable Flapdoodle and use external MongoDB Atlas URI
+			System.setProperty("spring.autoconfigure.exclude", "de.flapdoodle.embed.mongo.spring.autoconfigure.EmbeddedMongoAutoConfiguration");
+			String mongoUri = System.getenv("MONGO_URI");
+			if (mongoUri == null || mongoUri.isEmpty()) {
+				mongoUri = dotenv.get("MONGO_URI");
+			}
+			if (mongoUri == null || mongoUri.isEmpty()) {
+				// Fallback to searching backend/.env if needed
+				dotenv = Dotenv.configure().directory("./backend").ignoreIfMissing().load();
+				mongoUri = dotenv.get("MONGO_URI");
+			}
+			
+			if (mongoUri != null && !mongoUri.isEmpty()) {
+				System.setProperty("spring.data.mongodb.uri", mongoUri);
+			}
 		}
 
 		// Fix for DNS resolution issues with MongoDB Atlas on some Windows networks
