@@ -2,18 +2,24 @@
  * Global Configuration for SkillX Frontend
  * Use this file to set the connection to the backend server.
  */
-const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const hostname = window.location.hostname;
+
+// Determine if we are deployed on a public cloud frontend service
+const isCloudHosted = hostname.includes('onrender.com') || 
+                      hostname.includes('vercel.app') || 
+                      hostname.includes('netlify.app') || 
+                      hostname.includes('github.io');
 
 const CONFIG = {
-    // The base URL for the Spring Boot REST API
-    API_BASE_URL: isLocalhost 
-        ? `http://localhost:8080/api` 
-        : `https://major-project-42do.onrender.com/api`,
+    // If cloud-hosted, point to the Render backend. Otherwise, assume backend is on the same machine/IP at port 8080.
+    API_BASE_URL: isCloudHosted 
+        ? `https://major-project-42do.onrender.com/api` 
+        : `http://${hostname}:8080/api`,
 
     // The WebSocket endpoint for Chat features
-    WS_URL: isLocalhost 
-        ? `ws://localhost:8080/ws` 
-        : `wss://major-project-42do.onrender.com/ws`
+    WS_URL: isCloudHosted 
+        ? `wss://major-project-42do.onrender.com/ws`
+        : `ws://${hostname}:8080/ws`
 };
 
 // Export for console debugging if needed
